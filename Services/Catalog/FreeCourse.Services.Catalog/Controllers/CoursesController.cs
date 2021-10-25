@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace FreeCourse.Services.Catalog.Controllers
 {
-    [Route("api/[controller]s")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class CourseController : CustomBaseController
+    public class CoursesController : CustomBaseController
     {
         private readonly ICourseService _courseService;
 
-        public CourseController(ICourseService courseService)
+        public CoursesController(ICourseService courseService)
         {
             _courseService = courseService;
         }
-
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var response = await _courseService.GetAllAsync();
@@ -31,7 +31,8 @@ namespace FreeCourse.Services.Catalog.Controllers
             var response = await _courseService.GetByIdAsync(id);
             return CreateActionResultInstance(response);
         }
-        [Route("/api/[controller]s/GetAllByUserId/{userId}")]
+        [HttpGet]
+        [Route("/api/[controller]/GetAllByUserId/{userId}")]
         public async Task<IActionResult> GetAllByUserId(string userId)
         {
             var response = await _courseService.GetAllByUserIdAsync(userId);
