@@ -37,9 +37,11 @@ namespace FreeCourse.IdentityServer
             {
                 new Client
                 {
-                    ClientName=""
+                    ClientName="Asp.Net Core MVC",
                     ClientId = "WebMvcClient",
-                    secre
+                    ClientSecrets={new Secret("secret".Sha256())},
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedScopes={ "catalog_fullpermission", "photo_stock_fullpermission",IdentityServerConstants.LocalApi.ScopeName }
                 }
             };
     }
