@@ -27,6 +27,7 @@ namespace FreeCourse.Services.Basket.Controllers
         [HttpGet]
         public async Task<IActionResult> GetBasket()
         {
+            var claims = HttpContext.User.Claims;
             return CreateActionResultInstance(await _BasketService.GetBasket(_sharedIdentityService.GetUserId));
         }
 
@@ -37,6 +38,7 @@ namespace FreeCourse.Services.Basket.Controllers
             return CreateActionResultInstance(response);
         }
         
+        [HttpDelete]
         public async Task<IActionResult> DeleteBasket()
         {
             return CreateActionResultInstance(await _BasketService.Delete(_sharedIdentityService.GetUserId));
