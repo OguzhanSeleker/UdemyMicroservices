@@ -27,6 +27,10 @@ namespace FreeCourse.Services.Order.Domain.OrderAggregate
             Address = address;
             BuyerId = buyerId;
         }
+        public Order()
+        {
+
+        }
         public void AddOrderItem(string productId, string productName, decimal price, string pictureUrl)
         {
             var existProduct = _orderItems.Any(x => x.ProductId == productId);
