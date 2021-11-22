@@ -21,6 +21,7 @@ namespace FreeCourse.Services.Order.API
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+
                 });
     }
 }
